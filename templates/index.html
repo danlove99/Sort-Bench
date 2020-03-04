@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sort-Bench</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+  </style>
+</head>
+<body>
+<form action="{{ url_for('start')}}" method="POST">
+<div class="container" style="text-align: center;">
+  <img src="{{ url_for('static', filename='LOGO.JPG')}}" />
+  <br/>
+  <br/><br/>
+  
+  <br/>
+   <div class="form-group">
+  
+  <input name="Length" type="number" class="form-control" id="len" placeholder="Length of random Array">
+</div><br/><br/>
+<div class="form-group">
+  
+  <input name="Highest" type="number" class="form-control" id="high" placeholder="Highest number in random Array" style="">
+</div> 
+<br/>
+  <input name="submit_button" type="submit" class="btn btn-outline-primary  btn-large" value="BubbleSort" style="margin:15px;">
+  <input name="submit_button" type="submit" class="btn btn-outline-primary  btn-large" value="SelectionSort" style="margin:15px;">
+  <input name="submit_button" type="submit" class="btn btn-outline-primary  btn-large" value="HeapSort" style="margin:15px;">
+  <input name="submit_button" type="submit" class="btn btn-outline-primary  btn-large" value="QuickSort" style="margin:15px;">
+
+</div>
+<br/><br/>
+</form>
+</body>
+</html> 
