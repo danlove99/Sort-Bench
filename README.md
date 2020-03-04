@@ -2,7 +2,7 @@
 
 ## About
 
-  Sort-Bench is a web application for Benchmarking Sorting Algorithms. Currently it only excecutes the algorithms in Python but JavaScript will be available soon! <br/> Upon launching the application you will be prompted to enter a length and a maximum value for the program to generate a random Array. This Array will then be sorted by your chosen algorithm and a time (milliseconds) will be returned.
+  Sort-Bench is a web application for Benchmarking Sorting Algorithms. Currently it only excecutes the algorithms in Python but JavaScript will be available soon! <br/> Upon launching the application you will be prompted to enter a length and a maximum value for the program to generate a random Array. This Array will then be sorted by your chosen algorithm and a time (milliseconds) will be returned. 
   
 ## How to run
 
@@ -12,3 +12,6 @@
   `cd Sort-Bench`<br/>
   `pip install -r requirements.txt`<br/>
   `python main.py`<br/>
+
+## Landing page
+[Sub-Bench on Wix](https://danlovecomputing.wixsite.com/sub-bench)
