@@ -24,14 +24,11 @@ def start():
 			highest = request.form['Highest']
 			for x in range(int(length)):
 				arr.append(random.randrange(int(highest)))
-			
-
-
 			start = time.time()
 			bubblesort.bubbleSort(arr)
 			end = time.time()
 			Time = str((end-start)/1000)
-			return render_template('results.html', result=(Time[:5]+' milliseconds'))
+			return redirect(url_for('result'))
 
 			
 		elif request.form['submit_button'] == 'SelectionSort':
@@ -45,7 +42,7 @@ def start():
 			selectionsort.selectionsort(arr)
 			end = time.time()
 			Time = str((end-start)/1000)
-			return render_template('results.html', result=(Time[:5]+' milliseconds'))
+			return redirect(url_for('result'))
 
 		elif request.form['submit_button'] == 'HeapSort':
 			arr = []
@@ -57,7 +54,7 @@ def start():
 			heapsort.heapsort(arr)
 			end = time.time()
 			Time = str((end-start)/1000)
-			return render_template('results.html', result=(Time[:5]+' milliseconds'))
+			return redirect(url_for('result'))
 			
 		elif request.form['submit_button'] == 'QuickSort':
 			arr = []
@@ -65,16 +62,20 @@ def start():
 			highest = request.form['Highest']
 			for x in range(int(length)):
 				arr.append(random.randrange(int(highest)))
-			
-
 			start = time.time()
 			quicksort.quicksort(arr)
 			end = time.time()
 			Time = str((end-start)/1000)
-			return render_template('results.html', result=(Time[:5]+' milliseconds'))
+			return redirect(url_for('result'))
 
-		
-			
+@app.route("/result")
+def result():
+	return render_template('results.html', result=(Time[:5]+' milliseconds'))
 
+@app.route("/result", methods=['POST'])	
+def Back():
+	if request.method == 'POST':
+		if request.form['Back_button'] == 'Back':
+			return redirect(url_for('start'))
 if __name__ == '__main__':
 	app.run(host="0.0.0.0",port=8080,debug=True)
