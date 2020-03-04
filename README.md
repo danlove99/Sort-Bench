@@ -8,7 +8,7 @@
 
   **This program uses Python==3.7.0**
   
-  `git clone https://github.com/danlove99/Sort-Bench`
-  `cd Sort-Bench`
-  `pip install -r requirements.txt`
-  `python main.py`
+  `git clone https://github.com/danlove99/Sort-Bench`<br/>
+  `cd Sort-Bench`<br/>
+  `pip install -r requirements.txt`<br/>
+  `python main.py`<br/>
