@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,url_for, redirect
+from flask import Flask,render_template,request,url_for, redirect, session
 import quicksort
 import selectionsort
 import heapsort
@@ -7,6 +7,7 @@ import random
 import time
 
 app = Flask(__name__)
+app.secret_key = "abc"  
 
 @app.route("/")
 def index():    
@@ -25,6 +26,7 @@ def start():
 			bubblesort.bubbleSort(arr)
 			end = time.time()
 			Time = str((end-start)/1000)
+			session['time'] = (Time[:5]+' milliseconds')
 			return redirect(url_for('result'))
 
 			
@@ -38,6 +40,7 @@ def start():
 			selectionsort.selectionsort(arr)
 			end = time.time()
 			Time = str((end-start)/1000)
+			session['time'] = (Time[:5]+' milliseconds')
 			return redirect(url_for('result'))
 
 		elif request.form['submit_button'] == 'HeapSort':
@@ -50,6 +53,7 @@ def start():
 			heapsort.heapsort(arr)
 			end = time.time()
 			Time = str((end-start)/1000)
+			session['time'] = (Time[:5]+' milliseconds')
 			return redirect(url_for('result'))
 			
 		elif request.form['submit_button'] == 'QuickSort':
@@ -62,16 +66,21 @@ def start():
 			quicksort.quicksort(arr)
 			end = time.time()
 			Time = str((end-start)/1000)
+			session['time'] = (Time[:5]+' milliseconds')
 			return redirect(url_for('result'))
+	
 
 @app.route("/result")
 def result():
-	return render_template('results.html', result=(Time[:5]+' milliseconds'))
+	Time = session['time']
+	return render_template('results.html', result=Time)
 
 @app.route("/result", methods=['POST'])	
 def Back():
 	if request.method == 'POST':
-		if request.form['Back_button'] == 'Back':
+		if request.form['back_button'] == 'Back':
+			print('Done')
 			return redirect(url_for('start'))
+
 if __name__ == '__main__':
 	app.run(host="0.0.0.0",port=8080,debug=True)
