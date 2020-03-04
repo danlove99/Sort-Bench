@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<form action="{{ url_for('Back')}}" method="POST">
 <div class="container" style="text-align: center;">
   <img src="{{ url_for('static', filename='LOGO.JPG')}}" />
   <br/>
@@ -21,6 +22,6 @@
   <input name="back_button" type="submit" class="btn btn-outline-primary  btn-large" value="Back" style="margin:15px;">
 
 </div>
-
+</form>
 </body>
 </html> 
