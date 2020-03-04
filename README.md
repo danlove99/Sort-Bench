@@ -14,4 +14,4 @@
   `python main.py`<br/>
 
 ## Landing page
-[Sub-Bench on Wix](https://danlovecomputing.wixsite.com/sort-bench)
+[Sort-Bench on Wix](https://danlovecomputing.wixsite.com/sort-bench)
