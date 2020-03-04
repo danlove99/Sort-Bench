@@ -8,16 +8,13 @@ import time
 
 app = Flask(__name__)
 
-
 @app.route("/")
-def index():
-    
+def index():    
 	return render_template("index.html")
 
 @app.route("/",methods=['POST'])
 def start():
-	if request.method == 'POST':
-		
+	if request.method == 'POST':		
 		if request.form['submit_button'] == 'BubbleSort':
 			arr = []
 			length = request.form['Length']
@@ -32,7 +29,6 @@ def start():
 
 			
 		elif request.form['submit_button'] == 'SelectionSort':
-
 			arr = []
 			length = request.form['Length']
 			highest = request.form['Highest']
