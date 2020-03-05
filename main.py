@@ -26,10 +26,13 @@ def start():
 				highest = '100'
 			for x in range(int(length)):
 				arr.append(random.randrange(int(highest)))
-			start = time.time()
-			bubblesort.bubbleSort(arr)
-			end = time.time()
-			Time = str((end-start)/1000)
+			results = []
+			for x in range(101):
+				start = time.time()
+				bubblesort.bubbleSort(arr)
+				end = time.time()
+				Time = str((end-start)/1000)
+				results.append(Time[:5]+' milliseconds')
 			session['time'] = (Time[:5]+' milliseconds')
 			return redirect(url_for('result'))
 
