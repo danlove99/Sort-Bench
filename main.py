@@ -19,7 +19,11 @@ def start():
 		if request.form['submit_button'] == 'BubbleSort':
 			arr = []
 			length = request.form['Length']
+			if length == '':
+				length = '100'
 			highest = request.form['Highest']
+			if highest == '':
+				highest = '100'
 			for x in range(int(length)):
 				arr.append(random.randrange(int(highest)))
 			start = time.time()
