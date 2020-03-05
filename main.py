@@ -37,7 +37,11 @@ def start():
 		elif request.form['submit_button'] == 'SelectionSort':
 			arr = []
 			length = request.form['Length']
-			highest = request.form['Highest']
+			if length == '':
+				length = '100'
+			highest = request.form['Highest']                
+			if highest == '':
+				highest = '100'
 			for x in range(int(length)):
 				arr.append(random.randrange(int(highest)))
 			start = time.time()
@@ -50,7 +54,11 @@ def start():
 		elif request.form['submit_button'] == 'HeapSort':
 			arr = []
 			length = request.form['Length']
-			highest = request.form['Highest']
+			if length == '':
+				length = '100'
+			highest = request.form['Highest']                
+			if highest == '':
+				highest = '100'
 			for x in range(int(length)):
 				arr.append(random.randrange(int(highest)))
 			start = time.time()
@@ -63,7 +71,11 @@ def start():
 		elif request.form['submit_button'] == 'QuickSort':
 			arr = []
 			length = request.form['Length']
-			highest = request.form['Highest']
+			if length == '':
+				length = '100'
+			highest = request.form['Highest']                
+			if highest == '':
+				highest = '100'
 			for x in range(int(length)):
 				arr.append(random.randrange(int(highest)))
 			start = time.time()
