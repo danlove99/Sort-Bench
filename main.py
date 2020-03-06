@@ -19,7 +19,7 @@ def start():
 	if request.method == 'POST':		
 		if request.form['submit_button'] == 'BubbleSort':
 			length = request.form['Length']
-			if length == '':
+			if length == '' or int(length) >= 300:
 				length = '100'
 			highest = request.form['Highest']
 			if highest == '':
@@ -41,7 +41,7 @@ def start():
 			
 		elif request.form['submit_button'] == 'SelectionSort':
 			length = request.form['Length']
-			if length == '':
+			if length == '' or int(length) >= 300:
 				length = '100'
 			highest = request.form['Highest']
 			if highest == '':
@@ -62,7 +62,7 @@ def start():
 
 		elif request.form['submit_button'] == 'HeapSort':
 			length = request.form['Length']
-			if length == '':
+			if length == '' or int(length) >= 300:
 				length = '100'
 			highest = request.form['Highest']
 			if highest == '':
@@ -83,7 +83,7 @@ def start():
 			
 		elif request.form['submit_button'] == 'QuickSort':
 			length = request.form['Length']
-			if length == '':
+			if length == '' or int(length) >= 300:
 				length = '100'
 			highest = request.form['Highest']
 			if highest == '':
