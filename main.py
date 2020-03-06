@@ -8,18 +8,19 @@ import time
 import statistics
 
 app = Flask(__name__)
-app.secret_key = "abc"  
+app.secret_key = "abc"
 
 @app.route("/")
-def index():    
+def index():
 	return render_template("index.html")
 
 @app.route("/",methods=['POST'])
 def start():
-	if request.method == 'POST':		
+	if request.method == 'POST':
 		if request.form['submit_button'] == 'BubbleSort':
+			session['chosen'] = 'Bubble Sort'
 			length = request.form['Length']
-			if length == '' or int(length) >= 300:
+			if length == '':
 				length = '100'
 			highest = request.form['Highest']
 			if highest == '':
@@ -35,13 +36,14 @@ def start():
 				Time = (end-start)/1000
 				results.append(Time)
 			meanTime = statistics.mean(results)
-			session['time'] = (str(meanTime)[:5])
+			session['time'] = ((str(meanTime)[:5]) + ' Milliseconds')
 			return redirect(url_for('result'))
 
-			
+
 		elif request.form['submit_button'] == 'SelectionSort':
+			session['chosen'] = 'Selection Sort'
 			length = request.form['Length']
-			if length == '' or int(length) >= 300:
+			if length == '':
 				length = '100'
 			highest = request.form['Highest']
 			if highest == '':
@@ -57,12 +59,13 @@ def start():
 				Time = (end-start)/1000
 				results.append(Time)
 			meanTime = statistics.mean(results)
-			session['time'] = (str(meanTime)[:5])
+			session['time'] = ((str(meanTime)[:5]) + ' Milliseconds')
 			return redirect(url_for('result'))
 
 		elif request.form['submit_button'] == 'HeapSort':
+			session['chosen'] = 'Heap Sort'
 			length = request.form['Length']
-			if length == '' or int(length) >= 300:
+			if length == '':
 				length = '100'
 			highest = request.form['Highest']
 			if highest == '':
@@ -78,12 +81,13 @@ def start():
 				Time = (end-start)/1000
 				results.append(Time)
 			meanTime = statistics.mean(results)
-			session['time'] = (str(meanTime)[:5])
+			session['time'] = ((str(meanTime)[:5]) + ' Milliseconds')
 			return redirect(url_for('result'))
-			
+
 		elif request.form['submit_button'] == 'QuickSort':
+			session['chosen'] = 'Quick Sort'
 			length = request.form['Length']
-			if length == '' or int(length) >= 300:
+			if length == '':
 				length = '100'
 			highest = request.form['Highest']
 			if highest == '':
@@ -99,16 +103,17 @@ def start():
 				Time = (end-start)/1000
 				results.append(Time)
 			meanTime = statistics.mean(results)
-			session['time'] = (str(meanTime)[:5])
+			session['time'] = ((str(meanTime)[:5]) + ' Milliseconds')
 			return redirect(url_for('result'))
-	
+
 
 @app.route("/result")
 def result():
 	Time = session['time']
-	return render_template('results.html', result=Time)
+	chosen = session['chosen']
+	return render_template('results.html', result=Time, chosen=chosen)
 
-@app.route("/result", methods=['POST'])	
+@app.route("/result", methods=['POST'])
 def Back():
 	if request.method == 'POST':
 		if request.form['back_button'] == 'Back':
